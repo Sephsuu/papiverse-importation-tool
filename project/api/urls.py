@@ -1,5 +1,5 @@
 from django.urls import path
-from api.views import BranchCreate, ReadPaidOrders, ReadCategoryItems, ReadProductItems
+from api.views import BranchCreate, ReadPaidOrders, ReadCategoryItems, ReadProductItems, ReadPaidOrdersJson
 
 urlpatterns = [
     path('branches', BranchCreate.as_view(), name='book-list-create'),  

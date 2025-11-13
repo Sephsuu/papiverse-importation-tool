@@ -1,0 +1,121 @@
+Ultimate Bundle
+-2 BBQ Ribs > Meal
+-2 BBQ Chicken > Meal
+-1 Krispy Sisig > Meal
+-1 Crunchy Bagnet > Meal
+-5 Rice
+
+Sulit Rice Mix
+-Egg
+-Tofu
+-Atsara
+
+Set D
+-2 Sisig Kapamilya > Meal
+-2 Bagnet Kabarkada > Meal
+-4 Beefy Delimundo > Meal
+-3 Holy Steak > Meal
+-7 Porkchic Adobo > Meal
+-4 Ribchic Delight > Meal
+-2 Famous Chaos > Meal
+-2 Krispy Porpia > Meal
+-2 Papi's Dynasty Family > Meal
+-5 Cruncharap > Meal
+-20 Rice
+
+Set C
+-1 Sisig Kapamilya > Meal
+-1 Bagnet Chaos > Meal
+-2 Beefy Delimundo > Meal
+-2 Porkchic Adobo > Meal 
+-2 Ribchic Delight > Meal
+-1 Famous Chaos > Meal
+-1 Papi's Dynasty Family > Meal
+-3 Cruncharap > Meal
+-10 Rice
+
+Set B
+-2 Sisig Kapamilya > Meal
+-2 Bagnet Kabarkada > Meal
+-2 Beefy Delimundo > Meal
+-2 Adobo Machy > Meal
+-4 Ribchic Delight > Meal
+-20 Rice
+
+Set A
+-1 Sisig Kapamilya > Meal
+-1 Bagnet Kabarkada > Meal
+-1 Beefy Delimundo > Meal
+-1 Adobo Machy > Meal
+-2 Ribchic Delight > Meal
+-10 Rice
+
+Set A and C Fries
+-Plain
+-Cheese
+-Sour and Cream
+-BBQ
+-Sweet Corny
+
+Group Handaan
+-1 Ultra Ribchic Delight > Meal
+-1 Bagsig Bilao Small > Meal
+-2 Famous Chaos > Meal
+-1 Krispy Porpia > Meal
+-1 Papi's Dynasty > Meal
+-1 Squid Cerchio > Meal
+-1 Tofu Quadrato > Meal
+-1 Cruncharap > Meal
+-1 Tokboy > Meal
+-8 Rice
+
+Group Blow Out
+-1 BBQ Chicken > Meal
+-1 BBQ Ribs > Meal
+-1 Famous Chaos > Meal
+-1 Krispy Porpia > Meal
+-1 Papi's Dynasty > Meal
+-1 Squid Cerchio > Meal
+-1 Sisig > Meal
+-1 Bagnet > Meal
+-6 Rice
+
+Group Party
+-3 BBQ Chicken > Meal
+-3 BBQ Ribs > Meal
+-1 Bagsig Bilao Small > Meal
+-8 Rice 
+-1 Cruncharap > Meal
+-1 Tokboy > Meal
+
+Fiesta
+-2 BBQ Chicken > Meal
+-2 BBQ Ribs > Meal
+-1 Sisig > Meal
+-1 Bagnet > Meal
+-6 Rice
+
+Group Treat
+-1 BBQ Chicken > Meal
+-1 BBQ Ribs > Meal
+-1 Sisig > Meal
+-1 Bagnet > Meal
+-4 Rice
+
+Fries Flavor
+-Plain
+-Cheese
+-Sour Cream
+-BBQ
+-Sweet Corny
+
+Drinks
+-Black Marine
+-Green Paradise
+-Blue Lagoon
+-Island Iced Tea
+-Golden Cove
+
+
+
+

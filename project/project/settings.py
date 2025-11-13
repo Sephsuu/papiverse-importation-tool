@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'api',
     'rest_framework',
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +52,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1", "x848qg05-5000.asse.devtunnels.ms"]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'project.urls'
 
@@ -79,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql', 
         'NAME': 'papiverse_sales',                     
         'USER': 'postgres',                    
-        'PASSWORD': '',             
+        'PASSWORD': 'Pw:424230150119',             
         'HOST': 'localhost',                        
         'PORT': '5432',                              
     }

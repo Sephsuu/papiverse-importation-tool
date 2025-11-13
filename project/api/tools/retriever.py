@@ -2,6 +2,13 @@ import pandas as pd
 import re
 import math
 
+def to_float(value):
+    if pd.isna(value) or str(value).strip() in ["", "-", "–"]:
+        return 0.0
+    value = str(value)
+    value = re.sub(r'[^\d.\-]', '', value)  # removes everything except digits, dot, minus
+    return float(value) if value else 0.0
+
 class Retriever:
     def __init__(self):
         self.category_flag = True
@@ -79,20 +86,33 @@ class Retriever:
                     if next_item.isdigit():
                         qty = int(next_item)
                         i += 1 
-                product_list.append({"productName": name, "qty": qty})
+                matches = re.findall(r'\(Default/([^)]+)\)', name)
+                
+                modifiers = []
+                for m in matches:
+                    modifiers.extend(m.split('/'))
+
+                cleaned = re.sub(r'\(Default[^)]*\)', '', name).strip()
+
+                product_list.append({
+                    "productName": cleaned, 
+                    "quantity": qty,
+                    "modifiers": modifiers
+                })
+
                 i += 1
 
             self.paid_order_items.append({
                 "orderId": row.iloc[0],
-                "type": row.iloc[1],
-                "status": row.iloc[2],
+                "orderType": row.iloc[1],
+                "orderStatus": row.iloc[2],
                 "table": row.iloc[3],
                 "takeUpNumber": row.iloc[4],
-                "totalPaid": float(row.iloc[5].replace(",", "")),
-                "products": product_list,
+                "totalPaid": to_float(row.iloc[5]),
+                "items": product_list,
                 "abnormalQuantity": int(row.iloc[7]),
                 "productQty": int(row.iloc[8]),
-                "productAmount": float(row.iloc[9].replace(",", "")),
+                "productAmount": to_float(row.iloc[9]),
                 "productNeeding": row.iloc[10],
                 "serviceCharge": row.iloc[11],
                 "additionalCharge": row.iloc[12],
@@ -102,10 +122,10 @@ class Retriever:
                 "orderDiscount": row.iloc[16],
                 "discountVoucher": row.iloc[17],
                 "deliveryCharge": row.iloc[18],
-                "cash": float(row.iloc[21].replace('-', '0').replace(",", "")),
-                "gCash": float(row.iloc[22].replace('-', '0').replace(",", "")),
+                "cash": to_float(row.iloc[21]),
+                "gcash": to_float(row.iloc[22]),
                 "transactionFee": row.iloc[23],
-                "receivedAmount": float(row.iloc[24].replace(",", "")),
+                "receivedAmount": to_float(row.iloc[24]),
                 "source": row.iloc[27],
                 "cashier": row.iloc[28],
                 "paymentTime": row.iloc[29],
