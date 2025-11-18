@@ -13,16 +13,38 @@ class ReadPaidOrders(APIView):
         if serializer.is_valid():
             excel_file = serializer.validated_data['file']
             try:
+                # Extract part of filename
+                filename = excel_file.name
+                start = filename.find("Report-") + len("Report-")
+                end = filename.find("_202")
+                extracted_name = filename[start:end]
+
+                # Process Excel
                 df = pd.read_excel(excel_file, sheet_name='Paid order list')
                 rt = Retriever()
                 for index, row in df.iterrows():
                     rt.populate_paid_order_list(row)
 
                 safe_data = rt.clean_data(rt.paid_order_items)
-                return Response(safe_data)
+
+                # Convert to JSON
+                json_str = json.dumps(safe_data, indent=4)
+
+                # Use custom filename based on extracted text
+                download_name = f"{extracted_name}.json"
+                print()
+
+                response = HttpResponse(
+                    json_str,
+                    content_type='application/json'
+                )
+                response['Content-Disposition'] = f'attachment; filename="{download_name}"'
+
+                return response
 
             except Exception as e:
                 return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class ReadPaidOrdersJson(APIView):
@@ -53,7 +75,6 @@ class ReadPaidOrdersJson(APIView):
                 return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
 class ReadCategoryItems(APIView):
     def post(self, request, *args, **kwargs):
         serializer = FileUploadSerializer(data=request.data)
