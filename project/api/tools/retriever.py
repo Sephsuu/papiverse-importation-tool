@@ -109,10 +109,15 @@ class Retriever:
             cash = 0
             gcash = 0
 
-            if v_value is not None and v_value > 0:
+            if v_value.lower() == "cash":
                 cash = v_value
+                gcash = w_value
+            else: 
+                gacsh = v_value
+                cash = w_value
 
-            if w_value is not None and w_value > 0:
+
+            if w_value.lower() == "gcash" and w_value == "cash":
                 gcash = w_value
 
             self.paid_order_items.append({
