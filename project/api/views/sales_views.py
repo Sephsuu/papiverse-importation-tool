@@ -23,7 +23,7 @@ class ReadPaidOrders(APIView):
                 df = pd.read_excel(excel_file, sheet_name='Paid order list')
                 rt = Retriever()
                 for index, row in df.iterrows():
-                    rt.populate_paid_order_list(row)
+                    rt.populate_paid_order_list(row, df.iloc[0, 21])
 
                 safe_data = rt.clean_data(rt.paid_order_items)
 

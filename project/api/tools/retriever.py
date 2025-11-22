@@ -66,7 +66,7 @@ class Retriever:
         if row.iloc[0] == 'Product':
             self.product_flag = True
 
-    def populate_paid_order_list(self, row):
+    def populate_paid_order_list(self, row, v1):
         if pd.notna(row.iloc[0]) and "Explanation" in str(row.iloc[0]):
             self.paid_order_flag = False
 
@@ -109,7 +109,7 @@ class Retriever:
             cash = 0
             gcash = 0
 
-            if v_value.lower() == "cash":
+            if v1.lower() == "cash":
                 cash = v_value
                 gcash = w_value
             else: 
