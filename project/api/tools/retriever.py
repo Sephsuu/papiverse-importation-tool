@@ -113,12 +113,9 @@ class Retriever:
                 cash = v_value
                 gcash = w_value
             else: 
-                gacsh = v_value
+                gcash = v_value
                 cash = w_value
 
-
-            if w_value.lower() == "gcash" and w_value == "cash":
-                gcash = w_value
 
             self.paid_order_items.append({
                 "orderId": row.iloc[0],
