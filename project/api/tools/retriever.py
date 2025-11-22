@@ -102,35 +102,37 @@ class Retriever:
 
                 i += 1
 
+            # Determine which is Cash or Gcash
+            v_value = to_float(row.iloc[21])  # V1 column
+            w_value = to_float(row.iloc[22])  # W1 column
+
+            cash = 0
+            gcash = 0
+
+            if v_value is not None and v_value > 0:
+                cash = v_value
+
+            if w_value is not None and w_value > 0:
+                gcash = w_value
+
             self.paid_order_items.append({
                 "orderId": row.iloc[0],
                 "orderType": row.iloc[1],
                 "orderStatus": row.iloc[2],
-                # "table": row.iloc[3],
-                # "takeUpNumber": row.iloc[4],
                 "totalPaid": to_float(row.iloc[5]),
                 "items": product_list,
-                # "abnormalQuantity": int(row.iloc[7]),
                 "productQty": int(row.iloc[8]),
                 "productAmount": to_float(row.iloc[9]),
-                # "productNeeding": row.iloc[10],
-                # "serviceCharge": row.iloc[11],
-                # "additionalCharge": row.iloc[12],
-                # "temporaryCharge": row.iloc[13],
-                # "packingCharge": row.iloc[14],
-                # "dishesDiscount": row.iloc[15],
-                # "orderDiscount": row.iloc[16],
-                # "discountVoucher": row.iloc[17],
-                # "deliveryCharge": row.iloc[18],
-                "cash": to_float(row.iloc[21]),
-                "gcash": to_float(row.iloc[22]),
-                # "transactionFee": row.iloc[23],
+
+                # updated payment detection
+                "cash": cash,
+                "gcash": gcash,
+
                 "receivedAmount": to_float(row.iloc[24]),
-                # "source": row.iloc[27],
                 "cashier": row.iloc[28],
                 "paymentTime": row.iloc[29],
+            })
 
-        })
 
         return self.paid_order_items
 
