@@ -108,7 +108,7 @@ class Retriever:
 
             cash = 0
             gcash = 0
-
+            print(v1)
             if v1.lower() == "cash":
                 cash = v_value
                 gcash = w_value
